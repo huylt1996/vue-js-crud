@@ -4,9 +4,12 @@
     <table class="table">
       <thead>
         <tr>
+          <th scope="col" id="border-table-button"><button class="btn btn-primary" @click="handleAddItem">Add</button></th>
+        </tr>
+        <tr>
           <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
           <th scope="col">Handle</th>
           <th scope="col">Action</th>
         </tr>
@@ -100,6 +103,8 @@ export default {
     this.listPerson = [
       { stt: 1, firstName: "Huy", lastName: "Lee" },
       { stt: 2, firstName: "Dao", lastName: "Lee" },
+      { stt: 3, firstName: "Minh Anh", lastName: "Lee" },
+      { stt: 4, firstName: "Hoang", lastName: "Lee" }
     ];
   },
   methods: {
@@ -112,6 +117,9 @@ export default {
     handleDelete(index) {
       alert("Deleting " + "record " + index);
       this.listPerson.splice(index, 1);
+      for(let i = index; i < this.listPerson.length; i++){
+        this.listPerson[i].stt -= 1; 
+      }
     },
     handleSubmitDataUpdate() {
       let length = this.listPerson.length;
@@ -129,7 +137,10 @@ export default {
       this.checkUpdate = false;
       this.indexUpdate = -1;
     },
-  },
+    handleAddItem(){
+      alert("Add new item")
+    }
+  }
 };
 </script>
 
@@ -148,5 +159,9 @@ li {
 }
 a {
   color: #42b983;
+}
+
+#border-table-button {
+  border-bottom-width: 0px !important;
 }
 </style>

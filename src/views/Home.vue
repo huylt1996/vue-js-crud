@@ -2,7 +2,9 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ModalRoot />
     <CRUD msg="Hello Program"/> <!--:list-person ="listPerson"-->
+    
   </div>
 </template>
 
@@ -10,13 +12,20 @@
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 import CRUD from '@/components/crud.vue';
+import ModalRoot from '@/modals/compnents/ModalRoot.vue';
 /* eslint-disable */
 export default {
   name: 'Home',
   components: {
     HelloWorld,
-    CRUD
-  }
+    CRUD,
+    ModalRoot
+  },
+  // methods: {
+  //   addModal() {
+  //     ModalService.open(CRUD);
+  //   }
+  // }
   // ,
   // data() {
   //    return {
